@@ -6,12 +6,21 @@
  * Require Statements
  *************************/
 const express = require("express")
+expressLayouts = require("express-ejs-layouts")
 const env = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
 
 /* ***********************
- * Routes
+ * View Engine Setup
+ *************************/
+app.set("view engine", "ejs")
+app.use(expressLayouts)
+app.set("layout", "./layouts/layout") // not at views root
+
+
+/* ***********************
+ * Templates
  *************************/
 app.use(static)
 
@@ -28,3 +37,10 @@ const host = process.env.HOST
 app.listen(port, () => {
   console.log(`app listening on ${host}:${port}`)
 })
+
+// Index static.route
+app.get("/", function (req, res) {
+  res.render("index", { title: "Home" })
+})
+
+//
