@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "pgOptions": {
+                "ssl": {
+                    "rejectUnauthorized": true
+                }
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "sshOptions": {
+                "port": 22,
+                "username": "bankole",
+                "password": "bgfTFWpT2MZrv1VAZZEJlUVmq2A0W8h1"
+            },
+            "server": "localhost",
+            "driver": "PostgreSQL",
+            "name": "Render.com",
+            "connectString": "postgresql://bankole:bgfTFWpT2MZrv1VAZZEJlUVmq2A0W8h1@dpg-d5hamrmmcj7s73atuub0-a.frankfurt-postgres.render.com/cse340eb_m4b1"
+        }
+    ]
+}
