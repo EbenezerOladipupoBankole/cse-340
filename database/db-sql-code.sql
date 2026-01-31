@@ -27,6 +27,7 @@ CREATE TABLE public.inventory (
   inv_image CHARACTER VARYING NOT NULL,
   inv_thumbnail CHARACTER VARYING NOT NULL,
   inv_price NUMERIC(9, 0) NOT NULL,
+  inv_miles INTEGER NOT NULL,
   inv_stock INTEGER NOT NULL,
   inv_color CHARACTER VARYING NOT NULL,
   classification_id INT NOT NULL,
