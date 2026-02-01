@@ -102,6 +102,15 @@ header a {
   }
 }
 
+/* Hamburger Menu */
+#hamburgerBtn {
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px 15px;
+}
+
 /* Navigation styles */
 nav {
   background-color: #1a1a1a;
@@ -111,10 +120,14 @@ nav {
 
 nav ul {
   list-style: none;
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+}
+
+nav ul.open {
+  display: block;
 }
 
 nav li {
@@ -143,6 +156,14 @@ nav li:last-child a {
 
   nav li {
     min-width: auto;
+  }
+  
+  nav ul {
+    display: flex;
+  }
+
+  #hamburgerBtn {
+    display: none;
   }
 
   nav a {
@@ -537,4 +558,3 @@ footer {
     padding-top: 0;
   }
 }
-
