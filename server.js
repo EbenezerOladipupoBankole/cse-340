@@ -17,6 +17,8 @@ const flash = require('connect-flash')
 const pgSession = require('connect-pg-simple')(session)
 const expressMessages = require('express-messages')
 
+const cookieParser = require("cookie-parser")
+
 /* ***********************
  * View Engine Setup
  *************************/
@@ -40,12 +42,14 @@ app.use(session({
 
 // Express Messages Middleware
 app.use(flash())
-app.use(function(req, res, next){
+app.use(function (req, res, next) {
   res.locals.messages = expressMessages(req, res)
   next()
 })
 
 app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * Routes
@@ -67,6 +71,8 @@ app.get("/", utilities.handleErrors(async (req, res) => {
 
 // Inventory routes
 app.use("/inv", require("./routes/inventoryRoute"))
+// Account routes
+app.use("/account", require("./routes/accountRoute"))
 
 // File Not Found Route - must be last route but before error handler
 app.use(async (req, res, next) => {
