@@ -1,0 +1,42 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+    <% } else { %>
+      <script>
+        res.redirect('/')
+      </script>
+    <% } %>
+  
+  <%- messages() %>
+  
+  <% if (errors) { %>
+    <ul class="notice">
+   <% errors.array().forEach(error => { %>
+     <li><%= error.msg %></li>
+  <%  }) %>
+   </ul>
+  <% } %>
+  
+  <div class="account-management-view">
+    <form action="/message" method="post">
+      <fieldset>
+        <legend>Send us a message</legend>
+        
+        <label for="message_first_name">First Name:</label>
+        <input type="text" name="message_first_name" id="message_first_name" required value="<%= locals.message_first_name %>">
+        
+        <label for="message_last_name">Last Name:</label>
+        <input type="text" name="message_last_name" id="message_last_name" required value="<%= locals.message_last_name %>">
+        
+        <label for="message_email">Email:</label>
+        <input type="email" name="message_email" id="message_email" required value="<%= locals.message_email %>">
+
+        <label for="message_subject">Subject:</label>
+        <input type="text" name="message_subject" id="message_subject" required value="<%= locals.message_subject %>">
+        
+        <label for="message_body">Message:</label>
+        <textarea name="message_body" id="message_body" rows="5" required><%= locals.message_body %></textarea>
+  
+        <input type="submit" value="Send Message">
+      </fieldset>
+    </form>
+  </div>

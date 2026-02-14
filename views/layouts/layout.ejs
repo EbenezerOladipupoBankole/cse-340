@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%- include('./partials/head') %>
-  </head>
 
-  <body>
-    <div id="wrapper">
-      <%- include('./partials/header') %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%- include('./partials/head') %>
+</head>
+
+<body>
+  <div id="wrapper">
+    <%- include('./partials/header') %>
       <button id="hamburgerBtn"><span>&#9776;</span></button>
       <%- include('./partials/navigation') %>
 
-      <main>
-        <%- body %>
-      </main>
+        <main>
+          <%- body %>
+        </main>
 
-      <%- include('./partials/footer') %>
-    </div>
-    <script src="/js/script.js"></script>
-  </body>
+        <% if (title !=='Contact Us' ) { %>
+          <p style="text-align: center; margin: 1rem 0;"><a href="/message" title="Contact Us"
+              class="contact-button">Contact Us</a></p>
+          <% } %>
+            <%- include('./partials/footer') %>
+  </div>
+  <script src="/js/script.js"></script>
+</body>
+
 </html>

@@ -73,6 +73,8 @@ app.get("/", utilities.handleErrors(async (req, res) => {
 app.use("/inv", require("./routes/inventoryRoute"))
 // Account routes
 app.use("/account", require("./routes/accountRoute"))
+// Message routes
+app.use("/message", require("./routes/messageRoute"))
 
 // File Not Found Route - must be last route but before error handler
 app.use(async (req, res, next) => {
