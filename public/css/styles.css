@@ -9,13 +9,11 @@ body {
   font-family: 'Arial', sans-serif;
   line-height: 1.6;
   color: #333;
-  background: repeating-linear-gradient(
-    45deg,
-    black 0px,
-    black 15px,
-    white 15px,
-    white 30px
-  );
+  background: repeating-linear-gradient(45deg,
+      black 0px,
+      black 15px,
+      white 15px,
+      white 30px);
   padding: 10px;
   font-size: 14px;
 }
@@ -24,24 +22,20 @@ body {
   body {
     padding: 15px;
     font-size: 16px;
-    background: repeating-linear-gradient(
-      45deg,
-      black 0px,
-      black 20px,
-      white 20px,
-      white 40px
-    );
+    background: repeating-linear-gradient(45deg,
+        black 0px,
+        black 20px,
+        white 20px,
+        white 40px);
   }
 }
 
 html {
-  background: repeating-linear-gradient(
-    45deg,
-    black 0px,
-    black 20px,
-    white 20px,
-    white 40px
-  );
+  background: repeating-linear-gradient(45deg,
+      black 0px,
+      black 20px,
+      white 20px,
+      white 40px);
 }
 
 main {
@@ -157,7 +151,7 @@ nav li:last-child a {
   nav li {
     min-width: auto;
   }
-  
+
   nav ul {
     display: flex;
   }
@@ -309,7 +303,7 @@ footer {
     gap: 30px;
     padding: 20px;
   }
-  
+
   .vehicle-image {
     order: 2;
     flex: 1;
@@ -319,7 +313,7 @@ footer {
   .vehicle-image img {
     max-height: none;
   }
-  
+
   .vehicle-info {
     order: 1;
     flex: 1;
@@ -456,7 +450,7 @@ footer {
     gap: 30px;
     padding: 0;
   }
-  
+
   .upgrades,
   .reviews {
     flex: 1;
@@ -491,19 +485,18 @@ footer {
 /* Large screen styles (inside media query) */
 @media screen and (min-width: 768px) {
   html {
-    background: repeating-linear-gradient(
-      45deg,
-      black 0px,
-      black 20px,
-      white 20px,
-      white 40px
-    );
+    background: repeating-linear-gradient(45deg,
+        black 0px,
+        black 20px,
+        white 20px,
+        white 40px);
   }
 
   main {
     padding: 30px;
   }
 }
+
 /* Inventory Detail View Styles */
 #inv-detail {
   display: flex;
@@ -523,13 +516,13 @@ footer {
 }
 
 .inv-info {
-    padding: 1rem 0;
+  padding: 1rem 0;
 }
 
 .inv-info h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
-    color: #333;
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #333;
 }
 
 .price {
@@ -539,7 +532,7 @@ footer {
 }
 
 .desc {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 @media screen and (min-width: 768px) {
@@ -548,7 +541,7 @@ footer {
     align-items: flex-start;
     gap: 2rem;
   }
-  
+
   .inv-img {
     flex: 0 0 50%;
   }
@@ -557,4 +550,118 @@ footer {
     flex: 1;
     padding-top: 0;
   }
+}
+
+/* **************************** 
+ *  Account / Form Styling
+ * **************************** */
+
+/* Center the form and give it a card-like appearance */
+form {
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove default fieldset borders */
+form fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the legend as a heading */
+form legend {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  width: 100%;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+/* Labels */
+form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="number"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  /* Ensures padding doesn't increase width */
+  transition: border-color 0.2s;
+}
+
+/* Input Focus State */
+form input:focus,
+form textarea:focus,
+form select:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* Submit Button */
+form input[type="submit"],
+form button {
+  width: 100%;
+  padding: 0.85rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Flash Messages / Errors */
+.notice {
+  max-width: 500px;
+  margin: 1rem auto;
+  padding: 1rem;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  list-style-type: none;
+  text-align: center;
+}
+
+/* Account Management Links */
+.account-management-view {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.account-management-view h2 {
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.5rem;
 }
