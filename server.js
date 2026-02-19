@@ -49,7 +49,13 @@ app.use(function (req, res, next) {
 
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
-app.use(utilities.checkJWTToken)
+
+/* *****************************************************************
+ * The checkJWTToken middleware was moved from here.
+ * It should not be applied globally, as it prevents unauthenticated
+ * users from accessing the login and registration pages.
+ * It is now applied to specific routes that require authentication.
+ *******************************************************************/
 
 /* ***********************
  * Routes
@@ -70,11 +76,15 @@ app.get("/", utilities.handleErrors(async (req, res) => {
 }))
 
 // Inventory routes
-app.use("/inv", require("./routes/inventoryRoute"))
-// Account routes
+// These routes require a user to be logged in.
+app.use("/inv", utilities.checkJWTToken, require("./routes/inventoryRoute"))
+
+// Account routes have a mix of public (login, register) and private routes.
+// The protection for private account routes should be handled within the accountRoute file.
 app.use("/account", require("./routes/accountRoute"))
+
 // Message routes
-app.use("/message", require("./routes/messageRoute"))
+app.use("/message", utilities.checkJWTToken, require("./routes/messageRoute"))
 
 // File Not Found Route - must be last route but before error handler
 app.use(async (req, res, next) => {
