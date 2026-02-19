@@ -80,6 +80,9 @@ async function accountRegister(req, res) {
 *  Process login request
 * *************************************** */
 async function accountLogin(req, res) {
+    if (!process.env.ACCESS_TOKEN_SECRET) {
+        console.error("FATAL ERROR: ACCESS_TOKEN_SECRET is not defined in the environment.")
+    }
     let nav = await utilities.getNav()
     const { account_email, account_password } = req.body
     const accountData = await accountModel.getAccountByEmail(account_email)
@@ -151,6 +154,9 @@ async function logoutAccount(req, res, next) {
  *  Process Account Update
  * *************************************** */
 async function updateAccount(req, res, next) {
+    if (!process.env.ACCESS_TOKEN_SECRET) {
+        console.error("FATAL ERROR: ACCESS_TOKEN_SECRET is not defined in the environment.")
+    }
     let nav = await utilities.getNav()
     const {
         account_firstname,

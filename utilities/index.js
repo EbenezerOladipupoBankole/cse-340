@@ -116,6 +116,9 @@ Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)
  **************************************** */
 Util.checkJWTToken = (req, res, next) => {
     if (req.cookies.jwt) {
+        if (!process.env.ACCESS_TOKEN_SECRET) {
+            console.error("FATAL ERROR: ACCESS_TOKEN_SECRET is not defined in the environment (checkJWTToken).")
+        }
         jwt.verify(
             req.cookies.jwt,
             process.env.ACCESS_TOKEN_SECRET,
